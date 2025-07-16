@@ -8,6 +8,7 @@ body {
 .flex {
   display: flex;
   gap: 3rem;
+  align-items: flex-start;
 }
 
 table {
