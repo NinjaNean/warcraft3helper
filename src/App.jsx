@@ -8,7 +8,13 @@ function App() {
   function handleGemClick(gem, level) {
     let newGem = `${gem} ${level}`;
 
-    setOwnedGems([...ownedGems, newGem]);
+    if (ownedGems.includes(newGem)) {
+      const result = ownedGems.filter((gem) => gem !== newGem);
+
+      setOwnedGems(result);
+    } else {
+      setOwnedGems([...ownedGems, newGem]);
+    }
   }
 
   return (
