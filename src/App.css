@@ -1,0 +1,53 @@
+body {
+  background-color: #14171e;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dcdcdd;
+}
+
+.flex {
+  display: flex;
+  gap: 3rem;
+}
+
+table {
+  thead {
+    background-color: #333a40;
+    cursor: default;
+
+    th {
+      padding: 1rem;
+    }
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #3d444a;
+    }
+
+    tr {
+      background-color: #333a40;
+      transition: all 0.3s;
+    }
+  }
+
+  td {
+    text-align: center;
+
+    &:first-child {
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &:nth-child(n + 2):hover {
+      cursor: pointer;
+      background-color: #4a5259;
+    }
+  }
+}
+
+img {
+  height: 50px;
+}
