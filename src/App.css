@@ -1,8 +1,12 @@
+:root {
+  --white-ish: #dcdcdd;
+}
+
 body {
   background-color: #14171e;
   font-family: "Noto Sans", sans-serif;
   font-size: 1.2rem;
-  color: #dcdcdd;
+  color: var(--white-ish);
 }
 
 .flex {
@@ -51,4 +55,27 @@ table {
 
 img {
   height: 50px;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: #3c444a;
+  color: var(--white-ish);
+  border: 2px solid var(--white-ish);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--white-ish);
+    border-color: #3c444a;
+    color: #3c444a;
+  }
 }

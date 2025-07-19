@@ -17,6 +17,12 @@ function App() {
     }
   }
 
+  function handleCraftClick(gems) {
+    let tempList = ownedGems.filter((myGems) => !gems.includes(myGems));
+
+    setOwnedGems(tempList);
+  }
+
   return (
     <div className="flex">
       <table>
@@ -53,18 +59,23 @@ function App() {
       <ol>
         {specialTower
           .filter((tower) => tower.requires?.some((requiredGem) => ownedGems.includes(requiredGem)))
-          .map((tower) => (
-            <li key={tower.name}>
-              <strong>{tower.name}</strong>
-              <ul>
-                {tower.requires.map((req) => {
-                  if (!ownedGems.includes(req)) {
-                    return <li key={req}>{req}</li>;
-                  }
-                })}
-              </ul>
-            </li>
-          ))}
+          .map((tower) => {
+            const hasAllGems = tower.requires.every((req) => ownedGems.includes(req));
+
+            return (
+              <li key={tower.name}>
+                <strong>{tower.name}</strong>
+                <ul>
+                  {tower.requires.map((req) => {
+                    if (!ownedGems.includes(req)) {
+                      return <li key={req}>{req}</li>;
+                    }
+                  })}
+                </ul>
+                {hasAllGems ? <button onClick={() => handleCraftClick(tower.requires)}>Craft</button> : ""}
+              </li>
+            );
+          })}
       </ol>
     </div>
   );
